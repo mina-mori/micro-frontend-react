@@ -1,0 +1,25 @@
+nav {
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 0.5rem;
+}
+
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  margin-right: 1rem;
+}
+
+li a {
+  color: #333;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #000;
+}

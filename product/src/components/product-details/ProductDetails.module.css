@@ -1,0 +1,25 @@
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 2rem;
+  max-width: 50%;
+}
+
+img {
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin: 0;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}

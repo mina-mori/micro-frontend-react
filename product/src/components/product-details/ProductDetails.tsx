@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './ProductDetails.module.css';
 import ProductService from '../../services/Product.service';
 import { useParams } from 'react-router-dom';
+const RemoteBreadcurmbs = React.lazy(() => import('Shared_APP/breadcrumbs'));
 interface Product {
   id: string;
   name: string;
@@ -9,7 +10,6 @@ interface Product {
   description: string;
   image: string;
 }
-
 const ProductDetails: React.FC = () => {
   const { id } = useParams();
   const { getProduct } = ProductService();
@@ -22,12 +22,15 @@ const ProductDetails: React.FC = () => {
     fetchData();
   }, []);
   return (
-    <div className={styles.productDetails}>
-      <h1 className={styles.h1}>{product?.name}</h1>
-      <img className={styles.img} src={product?.image} alt={product?.name} />
-      <p className={styles.p}>{product?.description}</p>
-      <p className={styles.p}>Price: ${product?.price}</p>
-    </div>
+    <>
+      <RemoteBreadcurmbs strings={['Products', 'Product 1']} />
+      <div className={styles.productDetails}>
+        <h1 className={styles.h1}>{product?.name}</h1>
+        <img className={styles.img} src={product?.image} alt={product?.name} />
+        <p className={styles.p}>{product?.description}</p>
+        <p className={styles.p}>Price: ${product?.price}</p>
+      </div>
+    </>
   );
 };
 

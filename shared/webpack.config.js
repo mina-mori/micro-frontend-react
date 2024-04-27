@@ -4,7 +4,7 @@ const Dotenv = require('dotenv-webpack');
 const deps = require('./package.json').dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: 'http://localhost:8080/',
+    publicPath: 'http://localhost:4000/',
   },
 
   resolve: {
@@ -12,7 +12,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 8080,
+    port: 4000,
     historyApiFallback: true,
   },
 
@@ -41,14 +41,11 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: 'Product_APP',
-      filename: 'product-app.js',
-      remotes: {
-        Shared_APP: 'Shared_APP@http://localhost:4000/shared-app.js',
-      },
+      name: 'Shared_APP',
+      filename: 'shared-app.js',
+      remotes: {},
       exposes: {
-        './productList': './src/components/product-list/ProductList',
-        './productDetails': './src/components/product-details/ProductDetails',
+        './breadcrumbs': './src/components/breadcrumbs/Breadcrumbs',
       },
       shared: {
         ...deps,

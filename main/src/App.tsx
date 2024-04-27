@@ -13,7 +13,8 @@ export const App = () => {
     <div className='container'>
       <Routes>
         <Route path='/' element={<RemoteProductList />} />
-        <Route path='/:id' element={<RemoteProductDetails />} />
+        <Route path='/products' element={<RemoteProductList />} />
+        <Route path='/products/:id' element={<RemoteProductDetails />} />
       </Routes>
     </div>
   );
